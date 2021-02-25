@@ -3,3 +3,6 @@
 
 HINT: [GROUP BY](http://www.sqlite.org/lang_select.html#resultset)
 
+SELECT BillingCountry, COUNT(InvoiceId) TotalInvoices
+FROM Invoice
+GROUP BY BillingCountry;
