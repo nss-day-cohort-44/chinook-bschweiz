@@ -1,3 +1,7 @@
-1. `non_usa_customers.sql`: Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
+1. `non_usa_customers.sql`: Provide a query showing Customers 
+    (just their full names, customer ID and country) 
+    who are not in the US.
 
-SELECT * FROM Artist WHERE ArtistId <= 12;
+SELECT FirstName, LastName, CustomerId, Country 
+    FROM Customer 
+    WHERE Country NOT LIKE 'USA';
