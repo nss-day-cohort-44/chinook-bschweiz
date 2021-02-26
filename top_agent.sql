@@ -1,8 +1,7 @@
 20. `top_agent.sql`: Which sales agent made the most in sales over all?
 
-SELECT TotalSales,
-    EmployeeDamnName,
-    THEDAMNYEARDAMMIT
+SELECT MAX(TotalSales) BIGGESTSALES,
+    EmployeeDamnName AS TOPSELLERWOOHOOFORTHEM
 
     FROM (
         SELECT 
@@ -20,8 +19,7 @@ SELECT TotalSales,
         AND c.SupportRepId = e.EmployeeId
         
         GROUP BY
-        EmployeeDamnName,
-        THEDAMNYEARDAMMIT
+        EmployeeDamnName
     )
 ;
 
