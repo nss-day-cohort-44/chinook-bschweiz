@@ -3,7 +3,7 @@
     > **Hint:** Use the [MAX](https://www.sqlite.org/lang_aggfunc.html#maxggunc) 
     function on a [subquery](http://beginner-sql-tutorial.com/sql-subquery.htm).
 
-SELECT C.FirstName RepName, C.LastName RepLast, 
+SELECT E.FirstName RepName, E.LastName RepLast, 
         printf('%.2f', SUM(I.Total)) TotalSales, I.InvoiceDate
     FROM Invoice I
     JOIN Customer C
@@ -11,4 +11,6 @@ SELECT C.FirstName RepName, C.LastName RepLast,
     JOIN Employee E
     ON E.EmployeeId = C.SupportRepId
     WHERE I.InvoiceDate LIKE "2009%"
-    GROUP BY RepName ORDER BY TotalSales;
+    GROUP BY RepName 
+    ORDER BY TotalSales DESC
+    LIMIT 1;
