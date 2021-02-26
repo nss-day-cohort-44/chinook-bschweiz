@@ -2,7 +2,7 @@
 total sales made by 
 each sales agent.
 
-SELECT C.FirstName RepName, C.LastName RepLast, SUM(I.Total)
+SELECT C.FirstName RepName, C.LastName RepLast, printf('%.2f', SUM(I.Total))
 FROM Invoice I
 JOIN Customer C
 ON I.CustomerId = C.CustomerId
