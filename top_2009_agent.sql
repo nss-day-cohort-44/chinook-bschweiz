@@ -4,7 +4,7 @@
     function on a [subquery](http://beginner-sql-tutorial.com/sql-subquery.htm).
 
 SELECT E.FirstName RepName, E.LastName RepLast, 
-        printf('%.2f', SUM(I.Total)) TotalSales, I.InvoiceDate
+        '$' || printf('%.2f', SUM(I.Total)) TotalSales, strftime('%Y', I.InvoiceDate) AS YearWETALKINGBOUT
     FROM Invoice I
     JOIN Customer C
     ON I.CustomerId = C.CustomerId
@@ -14,3 +14,7 @@ SELECT E.FirstName RepName, E.LastName RepLast,
     GROUP BY RepName 
     ORDER BY TotalSales DESC
     LIMIT 1;
+
+SELECT
+    '$' || printf('%.2f', SUM(I.Total)) AS TotalSale$
+    E.FirstName 
