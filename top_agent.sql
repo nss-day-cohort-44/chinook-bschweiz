@@ -1,11 +1,12 @@
 20. `top_agent.sql`: Which sales agent made the most in sales over all?
 
-SELECT MAX(TotalSales),
-    EmployeeDamnName
+SELECT TotalSales,
+    EmployeeDamnName,
+    THEDAMNYEARDAMMIT
 
     FROM (
         SELECT 
-        SUM(i.Total) AS TotalSales,
+        '$'||printf('%.2f', SUM(i.Total)) AS TotalSales,
         e.FirstName ||' '|| e.LastName AS EmployeeDamnName,
         strftime('%Y', i.InvoiceDate) AS THEDAMNYEARDAMMIT
 
@@ -17,8 +18,7 @@ SELECT MAX(TotalSales),
         WHERE
         i.CustomerId = c.CustomerId
         AND c.SupportRepId = e.EmployeeId
-        AND THEDAMNYEARDAMMIT = '2009'
-
+        
         GROUP BY
         EmployeeDamnName,
         THEDAMNYEARDAMMIT
