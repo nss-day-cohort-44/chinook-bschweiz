@@ -1,10 +1,15 @@
 22. `sales_per_country.sql`: Provide a query that shows the 
 total sales per country.
 
-SELECT '$'||printf('%.2f',SUM(Total)) AS TotalSales, BillingCountry
-FROM
-Invoice i
-GROUP BY BillingCountry
+SELECT '$'||printf('%.2f',(TotalSales)) AS GrandeTotale, DAMNCOUNTRY
+FROM (
+    SELECT SUM(Total) as TotalSales, 
+    i.BillingCountry AS DAMNCOUNTRY
+    
+    FROM Invoice i
+    
+GROUP BY DAMNCOUNTRY
+)
 ORDER BY TotalSales DESC
 ;
 
