@@ -1,7 +1,8 @@
 24. `top_2013_track.sql`: Provide a query that shows the most purchased track of 2013.
 
 
-SELECT t.Name AS TrackTitle, il.InvoiceLineId, i.InvoiceDate
+SELECT t.Name AS TrackTitle, 
+        COUNT(il.InvoiceLineId) AS BuyCount, i.InvoiceDate
 
 FROM
     Invoice i
@@ -13,6 +14,7 @@ FROM
     WHERE i.InvoiceDate LIKE '2013%'
 
     GROUP BY TrackTitle
+    ORDER BY BuyCount DESC
 
 
 -- steve's code: 
